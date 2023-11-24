@@ -1,12 +1,17 @@
 package Vista;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 public class vista {
 
 	private JFrame frame;
+	private JDialog pantallaCarga;
 
 	/**
 	 * Launch the application.
@@ -16,7 +21,7 @@ public class vista {
 			public void run() {
 				try {
 					vista window = new vista();
-					window.frame.setVisible(true);
+					window.mostrarPantallaCarga();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -31,6 +36,28 @@ public class vista {
 		initialize();
 	}
 
+	private void mostrarPantallaCarga() {
+		pantallaCarga = new JDialog((JFrame)null,"Cargando...",true);
+		pantallaCarga.setSize(200, 100);
+        pantallaCarga.setLocationRelativeTo(null);
+        pantallaCarga.setVisible(true);
+        
+        
+        Timer Temporizador = new Timer(5000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ocultarPantallaCarga();
+            }
+        });
+        Temporizador.setRepeats(false); 
+        Temporizador.start();
+	}
+	
+	private void ocultarPantallaCarga() {
+        pantallaCarga.dispose();
+        initialize();
+    }
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
