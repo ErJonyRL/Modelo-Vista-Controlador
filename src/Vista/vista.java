@@ -40,9 +40,7 @@ public class vista {
 		pantallaCarga = new JDialog((JFrame)null,"Cargando...",true);
 		pantallaCarga.setSize(200, 100);
         pantallaCarga.setLocationRelativeTo(null);
-        pantallaCarga.setVisible(true);
-        
-        
+
         Timer Temporizador = new Timer(5000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,6 +49,8 @@ public class vista {
         });
         Temporizador.setRepeats(false); 
         Temporizador.start();
+        
+        pantallaCarga.setVisible(true);
 	}
 	
 	private void ocultarPantallaCarga() {
