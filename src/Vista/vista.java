@@ -15,8 +15,10 @@ public class vista {
 
 	/**
 	 * Launch the application.
+	 * @return 
+	 * @return 
 	 */
-	public static void main(String[] args) {
+	public void cargarVentana() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -32,11 +34,8 @@ public class vista {
 	/**
 	 * Create the application.
 	 */
-	public vista() {
-		initialize();
-	}
 
-	private void mostrarPantallaCarga() {
+	public void mostrarPantallaCarga() {
 		pantallaCarga = new JDialog((JFrame)null,"Cargando...",true);
 		pantallaCarga.setSize(200, 100);
         pantallaCarga.setLocationRelativeTo(null);
@@ -51,11 +50,12 @@ public class vista {
         Temporizador.start();
         
         pantallaCarga.setVisible(true);
+        initialize();
+        
 	}
 	
 	private void ocultarPantallaCarga() {
         pantallaCarga.dispose();
-        initialize();
     }
 	
 	/**
@@ -65,6 +65,7 @@ public class vista {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 
 }
