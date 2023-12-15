@@ -1,16 +1,18 @@
 package Controlador;
 
 import Vista.vista;
-
+import LooK.look;
 public class Controlador {
-	vista miVista;
+	vista miVistaPCHelper;
 	
-	public Controlador(vista miVista) {
-		this.miVista = miVista;
+	public Controlador(vista miVistaPCHelper) {
+		this.miVistaPCHelper = miVistaPCHelper;
 	}
 	
-	public void mostrarVista() {
-		this.miVista.cargarVentana();
+	public void mostrarVistaPCHelper() {
+		this.miVistaPCHelper.cargarVentana();
 	}
+	
+	
 
 }

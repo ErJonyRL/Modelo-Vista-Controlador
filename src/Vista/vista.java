@@ -13,10 +13,11 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 
+
 public class vista {
 
-	private JFrame frame;
-	private JDialog pantallaCarga;
+	public JFrame principalPCHelper;
+	private JDialog pantallaCargaPCHelper;
 
 	/**
 	 * Launch the application.
@@ -28,7 +29,7 @@ public class vista {
 			public void run() {
 				try {
 					vista window = new vista();
-					window.mostrarPantallaCarga();
+					window.mostrarPantallaCargaPCHelper();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,10 +41,10 @@ public class vista {
 	 * Create the application.
 	 */
 
-	public void mostrarPantallaCarga() {
-		pantallaCarga = new JDialog((JFrame)null,"Cargando...",true);
-		pantallaCarga.setSize(200, 100);
-        pantallaCarga.setLocationRelativeTo(null);
+	public void mostrarPantallaCargaPCHelper() {
+		pantallaCargaPCHelper = new JDialog((JFrame)null,"Cargando...",true);
+		pantallaCargaPCHelper.setSize(200, 100);
+        pantallaCargaPCHelper.setLocationRelativeTo(null);
 
         Timer Temporizador = new Timer(5000, new ActionListener() {
             @Override
@@ -54,26 +55,26 @@ public class vista {
         Temporizador.setRepeats(false); 
         Temporizador.start();
         
-        pantallaCarga.setVisible(true);
-        initialize();
+        pantallaCargaPCHelper.setVisible(true);
+        pantallaPrincipalPCHelper();
         
 	}
 	
 	private void ocultarPantallaCarga() {
-        pantallaCarga.dispose();
+        pantallaCargaPCHelper.dispose();
     }
 	
 	/**
 	 * Initialize the contents of the frame.
 	 * @wbp.parser.entryPoint
 	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	private void pantallaPrincipalPCHelper() {
+		principalPCHelper = new JFrame();
+		principalPCHelper.setBounds(100, 100, 450, 300);
+		principalPCHelper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		principalPCHelper.getContentPane().add(panel, BorderLayout.CENTER);
 		
 		JLabel lblNewLabel = new JLabel("PCHelper");
 		GroupLayout gl_panel = new GroupLayout(panel);
@@ -91,6 +92,6 @@ public class vista {
 					.addContainerGap(247, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
-		frame.setVisible(true);
+		principalPCHelper.setVisible(true);
 	}
 }
