@@ -1,8 +1,8 @@
 package PCHelper;
 
 import Controlador.Controlador;
+import Modelo.look;
 import Vista.vista;
-import LooK.look;
 
 public class pchelper {
 
